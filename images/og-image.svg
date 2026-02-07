@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a66dbf"/>
+      <stop offset="50%" style="stop-color:#894fa3"/>
+      <stop offset="100%" style="stop-color:#6e3f82"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ogGradient)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="200" fill="rgba(255,255,255,0.05)"/>
+  <circle cx="1100" cy="530" r="300" fill="rgba(255,255,255,0.05)"/>
+
+  <!-- App icon -->
+  <g transform="translate(100, 215)">
+    <rect width="200" height="200" rx="45" fill="rgba(255,255,255,0.15)"/>
+    <g transform="translate(100, 100)" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round">
+      <circle cx="0" cy="-40" r="16"/>
+      <line x1="0" y1="-24" x2="0" y2="50"/>
+      <line x1="-35" y1="25" x2="35" y2="25"/>
+      <path d="M-50 50 Q-50 25 -25 25"/>
+      <path d="M50 50 Q50 25 25 25"/>
+    </g>
+  </g>
+
+  <!-- Text -->
+  <text x="350" y="280" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="700">Anchor</text>
+  <text x="350" y="360" fill="rgba(255,255,255,0.9)" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="36" font-weight="500">Build Habits That Stick</text>
+  <text x="350" y="420" fill="rgba(255,255,255,0.7)" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24">Task-based routines with app blocking</text>
+</svg>

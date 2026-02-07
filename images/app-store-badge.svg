@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="120" height="40">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#000000"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="40" rx="6" fill="url(#bg)"/>
+  <rect x="0.5" y="0.5" width="119" height="39" rx="5.5" fill="none" stroke="#a6a6a6" stroke-width="1"/>
+
+  <!-- Apple Logo -->
+  <g transform="translate(8, 8)">
+    <path fill="#fff" d="M15.769 7.847c-.033-3.36 2.749-4.986 2.875-5.063-1.568-2.292-4.007-2.607-4.868-2.636-2.063-.213-4.043 1.22-5.093 1.22-1.063 0-2.687-1.195-4.422-1.162C1.844.24-.154 2.115-.154 5.178c0 3.18 2.444 6.23 4.474 7.61 1.944 1.383 3.85.978 4.788.54.938-.435 2.594-1.058 4.347-.785.922.146 3.516.371 5.178-1.84-.133-.082-3.09-1.804-3.064-5.376v-.48zM12.839 2.62c.797-.97 1.338-2.3 1.188-3.64-1.15.048-2.562.78-3.384 1.734-.734.847-1.386 2.218-1.214 3.517 1.287.099 2.607-.652 3.41-1.61z"/>
+  </g>
+
+  <!-- Text -->
+  <text x="30" y="13" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="7" font-weight="400">Download on the</text>
+  <text x="30" y="27" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="600">App Store</text>
+</svg>
