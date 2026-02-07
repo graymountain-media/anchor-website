@@ -738,6 +738,54 @@ ul {
     }
 }
 
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: calc(-1 * var(--spacing-lg)) auto var(--spacing-2xl);
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ============================
+   Why Anchors Work Section
+   ============================ */
+
+.why-anchors {
+    padding: var(--spacing-3xl) 0;
+    background: var(--background-secondary);
+}
+
+.why-anchors-content {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.why-anchors-content p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.why-anchors-content p:first-child {
+    font-size: 1.375rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+.why-anchors-content .supportive-note {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
 /* ============================
    FAQ Section
    ============================ */
