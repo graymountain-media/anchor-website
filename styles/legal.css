@@ -1,0 +1,110 @@
+/* ============================
+   Legal Pages Styles
+   ============================ */
+
+.legal-content {
+    padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-3xl);
+    min-height: calc(100vh - 200px);
+}
+
+.legal-content .container {
+    max-width: 800px;
+}
+
+.legal-content h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: -0.01em;
+}
+
+.legal-updated {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    margin-bottom: var(--spacing-2xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--card-border);
+}
+
+.legal-content section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.legal-content h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text);
+}
+
+.legal-content p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+}
+
+.legal-content ul {
+    margin: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+}
+
+.legal-content li {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xs);
+    list-style: disc;
+}
+
+.legal-content li strong {
+    color: var(--text);
+}
+
+.legal-content a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.legal-content a:hover {
+    color: var(--primary-light);
+}
+
+/* Legal Footer */
+.legal-footer {
+    padding: var(--spacing-lg) 0;
+    background: var(--background-secondary);
+}
+
+.legal-footer .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0;
+}
+
+.legal-links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.legal-links a {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    transition: color var(--transition-fast);
+}
+
+.legal-links a:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 640px) {
+    .legal-footer .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    .legal-links {
+        gap: var(--spacing-md);
+    }
+}
