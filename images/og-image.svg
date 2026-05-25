@@ -1,33 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="ogGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a66dbf"/>
-      <stop offset="50%" style="stop-color:#894fa3"/>
-      <stop offset="100%" style="stop-color:#6e3f82"/>
-    </linearGradient>
-  </defs>
-
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#ogGradient)"/>
+  <rect width="1200" height="630" fill="#FAF8F3"/>
 
-  <!-- Decorative circles -->
-  <circle cx="100" cy="100" r="200" fill="rgba(255,255,255,0.05)"/>
-  <circle cx="1100" cy="530" r="300" fill="rgba(255,255,255,0.05)"/>
+  <!-- Quiet earth accents -->
+  <circle cx="1120" cy="80" r="220" fill="#F3ECE1"/>
+  <circle cx="150" cy="600" r="180" fill="#F3ECE1"/>
 
-  <!-- App icon -->
+  <!-- App icon: A-frame mark, cream on clay -->
   <g transform="translate(100, 215)">
-    <rect width="200" height="200" rx="45" fill="rgba(255,255,255,0.15)"/>
-    <g transform="translate(100, 100)" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round">
-      <circle cx="0" cy="-40" r="16"/>
-      <line x1="0" y1="-24" x2="0" y2="50"/>
-      <line x1="-35" y1="25" x2="35" y2="25"/>
-      <path d="M-50 50 Q-50 25 -25 25"/>
-      <path d="M50 50 Q50 25 25 25"/>
+    <rect width="200" height="200" rx="45" fill="#B5562F"/>
+    <g transform="translate(30,30) scale(1.4)" stroke="#F3ECE1" stroke-linecap="round" fill="none">
+      <line x1="50" y1="16" x2="26" y2="82" stroke-width="7.5"/>
+      <line x1="50" y1="16" x2="74" y2="82" stroke-width="7.5"/>
+      <line x1="34" y1="57" x2="66" y2="57" stroke-width="7.5"/>
+      <line x1="20" y1="82" x2="32" y2="82" stroke-width="7"/>
+      <line x1="68" y1="82" x2="80" y2="82" stroke-width="7"/>
     </g>
   </g>
 
   <!-- Text -->
-  <text x="350" y="280" fill="#fff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="700">Anchor</text>
-  <text x="350" y="360" fill="rgba(255,255,255,0.9)" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="36" font-weight="500">Guilt-Free Screen Time</text>
-  <text x="350" y="420" fill="rgba(255,255,255,0.7)" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24">Complete your routines, unlock your apps</text>
+  <text x="360" y="285" fill="#3A2C22" font-family="'Bitter', Georgia, serif" font-size="92" font-weight="500" letter-spacing="-1">Anchor</text>
+  <text x="360" y="360" fill="#8E3F20" font-family="'Bitter', Georgia, serif" font-size="44" font-weight="400">A steadier start.</text>
+  <text x="362" y="412" fill="#8A7B6E" font-family="'Karla', sans-serif" font-size="29" font-weight="400">guilt-free screen time, earned.</text>
 </svg>
