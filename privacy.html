@@ -3,38 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Privacy Policy for Anchor - Guilt-Free Screen Time">
+    <meta name="description" content="anchor privacy policy. your routines and habit data stay on your device.">
 
-    <title>Privacy Policy - Anchor</title>
+    <title>privacy — anchor</title>
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="preload" as="font" href="fonts/Bitter-latin.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="fonts/Karla-latin.woff2" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/legal.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav scrolled" id="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/app-icon.svg" alt="Anchor" class="nav-logo-icon">
-                <span>Anchor</span>
-            </a>
+    <!-- SVG sprite (mark + chev only — legal pages don't use the full icon family) -->
+    <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="mark" viewBox="12 14 76 76">
+                <path d="M70 78 V46 A20 20 0 0 0 30 46 V57" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+                <line x1="30" y1="57" x2="45" y2="69" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+            </symbol>
+            <symbol id="icon-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 6 L15 12 L9 18"/>
+            </symbol>
+        </defs>
+    </svg>
 
-            <a href="https://testflight.apple.com/join/tD7gWRxN" class="nav-cta">
-                Join beta
+    <!-- Navigation -->
+    <nav class="rb-nav" id="rb-nav" aria-label="Primary">
+        <div class="rb-nav-inner">
+            <a href="index.html" class="rb-lockup" aria-label="anchor — home">
+                <svg class="rb-lockup-mark" aria-hidden="true"><use href="#mark"/></svg>
+                <span class="rb-lockup-name">anchor</span>
+            </a>
+            <a href="https://testflight.apple.com/join/tD7gWRxN" target="_blank" rel="noopener" class="rb-nav-cta">
+                try free
+                <svg class="rb-btn-icon" aria-hidden="true"><use href="#icon-chev"/></svg>
             </a>
         </div>
     </nav>
 
-    <!-- Legal Content -->
-    <main class="legal-content">
-        <div class="container">
-            <h1>Privacy Policy</h1>
-            <p class="legal-updated">Last updated: February 17, 2025</p>
+    <!-- Legal content -->
+    <main class="rb-legal">
+        <div class="rb-legal-inner">
+            <p class="rb-legal-eyebrow">legal</p>
+            <h1 class="rb-legal-h1">privacy policy</h1>
+            <p class="rb-legal-updated">last updated: February 17, 2025</p>
 
             <section>
                 <h2>Overview</h2>
@@ -109,14 +125,42 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer legal-footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 Anchor. All rights reserved.</p>
-                <div class="legal-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
+    <footer class="rb-footer">
+        <div class="rb-container">
+            <div class="rb-footer-grid">
+                <div class="rb-footer-brand">
+                    <a href="index.html" class="rb-lockup">
+                        <svg class="rb-lockup-mark" aria-hidden="true"><use href="#mark"/></svg>
+                        <span class="rb-lockup-name">anchor</span>
+                    </a>
+                    <p class="rb-footer-tagline">a steadier start. guilt-free screen time, earned.</p>
                 </div>
+                <div class="rb-footer-col">
+                    <h4>product</h4>
+                    <ul>
+                        <li><a href="index.html#how-it-works">how it works</a></li>
+                        <li><a href="index.html#features">features</a></li>
+                        <li><a href="index.html#anchors">anchors</a></li>
+                        <li><a href="index.html#faq">faq</a></li>
+                    </ul>
+                </div>
+                <div class="rb-footer-col">
+                    <h4>legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">privacy</a></li>
+                        <li><a href="terms.html">terms</a></li>
+                    </ul>
+                </div>
+                <div class="rb-footer-col">
+                    <h4>connect</h4>
+                    <ul>
+                        <li><a href="mailto:support@anchorapp.io">contact</a></li>
+                        <li><a href="https://testflight.apple.com/join/tD7gWRxN" target="_blank" rel="noopener">TestFlight beta</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="rb-footer-bottom">
+                <p class="rb-footer-copy">&copy; 2026 anchor. all rights reserved.</p>
             </div>
         </div>
     </footer>

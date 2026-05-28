@@ -3,578 +3,638 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A steadier start. Anchor locks your apps until you do one real thing — then you unlock them by tapping a real-world anchor. Guilt-free screen time, earned.">
-    <meta name="keywords" content="habits, routines, app blocking, screen time, focus, iOS, getting started">
+    <meta name="description" content="a steadier start. anchor locks your apps until you do one real thing — then you unlock them by tapping a real-world anchor. guilt-free screen time, earned.">
+    <meta name="keywords" content="habits, productivity, app blocking, routines, iOS, Screen Time">
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Anchor — A steadier start">
-    <meta property="og:description" content="Guilt-free screen time, earned. Anchor locks your apps until you do one real thing, verified in the real world.">
+    <meta property="og:title" content="anchor — a steadier start">
+    <meta property="og:description" content="a steadier start. anchor locks your apps until you do one real thing — then you unlock them by tapping a real-world anchor. guilt-free screen time, earned.">
     <meta property="og:image" content="images/og-image.svg">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Anchor — A steadier start">
-    <meta name="twitter:description" content="Guilt-free screen time, earned. Anchor locks your apps until you do one real thing, verified in the real world.">
+    <meta name="twitter:title" content="anchor — a steadier start">
+    <meta name="twitter:description" content="a steadier start. anchor locks your apps until you do one real thing — then you unlock them by tapping a real-world anchor. guilt-free screen time, earned.">
 
     <!-- iOS Smart Banner - uncomment when app is on App Store -->
     <!-- <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID"> -->
 
-    <title>Anchor — A steadier start</title>
+    <title>anchor — a steadier start</title>
 
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="apple-touch-icon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Preload primary web fonts (latin subset, woff2) -->
+    <link rel="preload" as="font" href="fonts/Bitter-latin.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="fonts/Karla-latin.woff2" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="styles/tokens.css">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+    <!-- SVG sprite: Mark + icon family. Hidden; referenced via <use href="#..."> -->
+    <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+        <defs>
+            <!-- Mark (hook silhouette) — from anchor-logo.svg -->
+            <symbol id="mark" viewBox="12 14 76 76">
+                <path d="M70 78 V46 A20 20 0 0 0 30 46 V57" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+                <line x1="30" y1="57" x2="45" y2="69" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+            </symbol>
+
+            <!-- Icon family — 24×24 viewBox, stroke 1.8, round caps/joins, no fill.
+                 Translated from HANDOFF/ios/AnchorIcons.swift. -->
+            <symbol id="icon-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 6 L15 12 L9 18"/>
+            </symbol>
+            <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5 V19 M5 12 H19"/>
+            </symbol>
+            <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12 L10 17 L19 7"/>
+            </symbol>
+            <symbol id="icon-nfc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 12 A5 5 0 0 0 17 12 M5 12 A7 7 0 0 0 19 12 M3 12 A9 9 0 0 0 21 12"/>
+                <circle cx="12" cy="19" r="1.2" fill="currentColor" stroke="none"/>
+            </symbol>
+            <symbol id="icon-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="6" height="6" rx="1"/>
+                <rect x="14" y="4" width="6" height="6" rx="1"/>
+                <rect x="4" y="14" width="6" height="6" rx="1"/>
+                <path d="M14 14 H16 V16 M20 14 V20 H14"/>
+                <circle cx="16" cy="18" r="0.5" fill="currentColor" stroke="none"/>
+                <circle cx="18" cy="16" r="0.5" fill="currentColor" stroke="none"/>
+            </symbol>
+            <symbol id="icon-photo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 8 H7 L8.5 6 H15.5 L17 8 H20 V19 H4 Z"/>
+                <circle cx="12" cy="13.5" r="3.2"/>
+            </symbol>
+            <symbol id="icon-timer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="13" r="7.5"/>
+                <path d="M12 8.5 V13 L15 15 M10 3 H14"/>
+            </symbol>
+            <symbol id="icon-structure" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 5 V19 M19 5 V19 M5 5 H7 M5 19 H7 M19 5 H17 M19 19 H17"/>
+            </symbol>
+            <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3 L20 6 V11 C20 16, 16.5 19, 12 21 C7.5 19, 4 16, 4 11 V6 Z"/>
+            </symbol>
+            <symbol id="icon-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4 V9 M12 15 V20 M4 12 H9 M15 12 H20 M6 6 L9 9 M15 15 L18 18 M18 6 L15 9 M9 15 L6 18"/>
+            </symbol>
+            <symbol id="icon-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="6" width="16" height="14" rx="2"/>
+                <path d="M4 10 H20 M9 4 V8 M15 4 V8"/>
+            </symbol>
+            <symbol id="icon-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 19 V14 M12 19 V9 M19 19 V5"/>
+            </symbol>
+        </defs>
+    </svg>
+
     <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <img src="images/app-icon.svg" alt="Anchor" class="nav-logo-icon">
-                <span>Anchor</span>
+    <nav class="rb-nav" id="rb-nav" aria-label="Primary">
+        <div class="rb-nav-inner">
+            <a href="#" class="rb-lockup" aria-label="anchor — home">
+                <svg class="rb-lockup-mark" aria-hidden="true"><use href="#mark"/></svg>
+                <span class="rb-lockup-name">anchor</span>
             </a>
 
-            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#how-it-works">How It Works</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#anchors">Anchors</a></li>
-                <li><a href="#faq">FAQ</a></li>
+            <ul class="rb-nav-links">
+                <li><a href="#how-it-works">how it works</a></li>
+                <li><a href="#features">features</a></li>
+                <li><a href="#anchors">anchors</a></li>
+                <li><a href="#faq">faq</a></li>
             </ul>
 
-            <a href="https://testflight.apple.com/join/tD7gWRxN" class="nav-cta">
-                Try free
+            <button class="rb-nav-toggle" id="rb-nav-toggle"
+                    aria-label="Open navigation" aria-expanded="false" aria-controls="rb-nav-sheet">
+                <span class="rb-nav-toggle-dots"><span></span><span></span><span></span></span>
+            </button>
+
+            <a href="https://testflight.apple.com/join/tD7gWRxN" target="_blank" rel="noopener" class="rb-nav-cta">
+                try free
+                <svg class="rb-btn-icon" aria-hidden="true"><use href="#icon-chev"/></svg>
             </a>
+        </div>
+
+        <div class="rb-nav-sheet" id="rb-nav-sheet" data-open="false">
+            <ul>
+                <li><a href="#how-it-works">how it works</a></li>
+                <li><a href="#features">features</a></li>
+                <li><a href="#anchors">anchors</a></li>
+                <li><a href="#faq">faq</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-aurora"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-kicker">A steadier start.</p>
-                <h1 class="hero-title">Your phone, earned.</h1>
-                <p class="hero-tagline">
-                    Guilt-free screen time, earned. Anchor locks your apps until you do one real thing —
-                    then you unlock them by tapping a real-world anchor.
-                </p>
-                <a href="https://testflight.apple.com/join/tD7gWRxN" class="beta-button">
-                    Get early access — free
-                </a>
-                <p class="hero-subtext">free on iPhone · no account · TestFlight beta</p>
-
-                <!-- SOCIAL PROOF: no real reviews/counts yet (TestFlight beta). When they exist,
-                     delete this comment wrapper to make the proof row live and fill in the real numbers/quote. -->
-                <!--
-                <div class="social-proof">
-                    <span class="social-proof-stars" aria-hidden="true">★★★★★</span>
-                    <p class="social-proof-text"><strong>800+ people</strong> are testing Anchor</p>
-                </div>
-                -->
-            </div>
-            <div class="hero-mockup phone-frame phone-frame--hero">
-                <img src="images/screenshots/home.png" alt="Anchor home screen showing a morning routine in progress">
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem/Solution Section -->
-    <section class="problem-solution" id="problem-solution">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>The guilt-free promise</h2>
-                <p>Stop fighting your phone. Start using it as the reward.</p>
-            </div>
-
-            <div class="comparison-grid">
-                <div class="comparison-card problem fade-in">
-                    <div class="comparison-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <line x1="15" y1="9" x2="9" y2="15"></line>
-                            <line x1="9" y1="9" x2="15" y2="15"></line>
-                        </svg>
-                    </div>
-                    <h3>The Guilt Trap</h3>
-                    <ul>
-                        <li>Endless screen time limits that you ignore</li>
-                        <li>Feeling bad every time you pick up your phone</li>
-                        <li>Apps that shame you for "too much" usage</li>
-                        <li>Fighting your phone instead of using it</li>
-                    </ul>
+    <!-- Hero -->
+    <main class="rb-shell">
+    <section class="rb-hero" id="hero">
+        <div class="rb-container">
+            <div class="rb-hero-inner">
+                <div class="rb-hero-copy">
+                    <p class="rb-eyebrow">a steadier start</p>
+                    <h1 class="rb-hero-h1">your phone,<br><em>earned.</em></h1>
+                    <p class="rb-hero-body">anchor locks your apps until you do one real thing — then you unlock them by tapping a real-world anchor.</p>
+                    <a href="https://testflight.apple.com/join/tD7gWRxN" target="_blank" rel="noopener" class="rb-btn rb-btn-primary">
+                        get early access
+                        <svg class="rb-btn-icon" aria-hidden="true"><use href="#icon-chev"/></svg>
+                    </a>
+                    <p class="rb-hero-meta">free on iphone · no account · TestFlight beta</p>
                 </div>
 
-                <div class="comparison-card solution fade-in">
-                    <div class="comparison-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                        </svg>
-                    </div>
-                    <h3>The Anchor Way</h3>
-                    <ul>
-                        <li>Complete routines, unlock your apps — simple as that</li>
-                        <li>Enjoy TikTok, Instagram, games without guilt</li>
-                        <li>Your phone becomes motivation, not the enemy</li>
-                        <li>Feel accomplished before you even start scrolling</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="rb-hero-art" aria-hidden="true">
+                    <div class="rb-hero-halo"></div>
+                    <div class="rb-hero-phones">
+                        <!-- Back phone — home routines list (styled placeholder until real PNG lands) -->
+                        <div class="rb-phone rb-phone--back">
+                            <div class="rb-phone-screen">
+                                <div class="rb-phone-notch"></div>
+                                <div class="rb-mini-home">
+                                    <p class="rb-mini-home-eyebrow">today</p>
+                                    <h3 class="rb-mini-home-title">morning</h3>
+                                    <div class="rb-mini-row">
+                                        <span class="rb-mini-row-name">shower</span>
+                                        <span class="rb-mini-row-meta">tap</span>
+                                    </div>
+                                    <div class="rb-mini-row">
+                                        <span class="rb-mini-row-name">meds</span>
+                                        <span class="rb-mini-row-meta">tap</span>
+                                    </div>
+                                    <div class="rb-mini-row">
+                                        <span class="rb-mini-row-name">water</span>
+                                        <span class="rb-mini-row-meta">2 min</span>
+                                    </div>
+                                    <div class="rb-mini-row">
+                                        <span class="rb-mini-row-name">journal</span>
+                                        <span class="rb-mini-row-meta">snap</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>How it works</h2>
-                <p>Three steps to a steadier start</p>
-            </div>
-
-            <div class="steps">
-                <div class="step fade-in">
-                    <div class="step-text">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Create Your Routine</h3>
-                            <p>Build a sequence of tasks for your morning, workout, bedtime, or any habit you want to establish.</p>
+                        <!-- Front phone — NFC ready (clay full-bleed) -->
+                        <div class="rb-phone rb-phone--front">
+                            <div class="rb-phone-screen">
+                                <div class="rb-phone-notch"></div>
+                                <div class="rb-mini-nfc">
+                                    <svg class="rb-mini-nfc-mark" aria-hidden="true"><use href="#mark"/></svg>
+                                    <div>
+                                        <p class="rb-mini-nfc-h">your phone's right here.</p>
+                                        <p class="rb-mini-nfc-body">one thing first — then it's all yours.</p>
+                                        <svg class="rb-mini-nfc-waves" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-nfc"/></svg>
+                                    </div>
+                                    <span class="rb-mini-nfc-pill">tap your anchor</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="step-visual phone-frame phone-frame--inline">
-                        <img src="images/screenshots/new-routine.png" alt="Creating a new Morning Routine with three tasks">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The guilt-free promise -->
+    <section class="rb-section" id="promise">
+        <div class="rb-container">
+            <div class="rb-promise">
+                <div class="rb-promise-head">
+                    <p class="rb-eyebrow">the guilt-free promise</p>
+                    <h2 class="rb-promise-head-display">stop fighting your phone.<br>start using it as the reward.</h2>
+                </div>
+                <div class="rb-promise-cards">
+                    <div class="rb-promise-card rb-promise-card--today">
+                        <p class="rb-promise-card-eyebrow">today</p>
+                        <ul class="rb-promise-card-list">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg><span>endless screen time limits that you ignore</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg><span>feeling bad every time you pick up your phone</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg><span>apps that shame you for "too much" usage</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg><span>fighting your phone instead of using it</span></li>
+                        </ul>
+                    </div>
+                    <div class="rb-promise-card rb-promise-card--anchor">
+                        <p class="rb-promise-card-eyebrow">the anchor way</p>
+                        <ul class="rb-promise-card-list">
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 L10 17 L19 7"/></svg><span>complete routines, unlock your apps — simple as that</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 L10 17 L19 7"/></svg><span>enjoy tiktok, instagram, games without guilt</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 L10 17 L19 7"/></svg><span>your phone becomes motivation, not the enemy</span></li>
+                            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 L10 17 L19 7"/></svg><span>feel accomplished before you even start scrolling</span></li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="step fade-in">
-                    <div class="step-text">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Set Your Triggers</h3>
-                            <p>Choose when routines start, and place your anchors where tasks happen. Put the anchor <em>inside</em> the closet, not on your nightstand — the point is to get you there, because once you're there, getting dressed is obvious.</p>
+    <!-- How it works -->
+    <section class="rb-section rb-tone-surface" id="how-it-works">
+        <div class="rb-container">
+            <div class="rb-section-head">
+                <p class="rb-eyebrow">how it works</p>
+                <h2 class="rb-section-head-display">three steps to a steadier start</h2>
+            </div>
+
+            <div class="rb-howit">
+                <article class="rb-howit-block">
+                    <div class="rb-howit-text">
+                        <p class="rb-howit-num">01</p>
+                        <h3 class="rb-howit-title">create your routine</h3>
+                        <p class="rb-howit-body">build a sequence of tasks for your morning, workout, bedtime, or any habit you want to establish.</p>
+                    </div>
+                    <div class="rb-howit-phone-wrap" aria-hidden="true">
+                        <div class="rb-phone">
+                            <div class="rb-phone-screen">
+                                <div class="rb-phone-notch"></div>
+                                <div class="rb-mini-builder">
+                                    <p class="rb-mini-builder-title">new routine</p>
+                                    <div class="rb-mini-builder-row">shower</div>
+                                    <div class="rb-mini-builder-row">meds</div>
+                                    <div class="rb-mini-builder-row">water</div>
+                                    <div class="rb-mini-add">+ add task</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="step-visual phone-frame phone-frame--inline">
-                        <img src="images/screenshots/lock-screen.png" alt="Lock Screen showing a scheduled routine waiting to start">
-                    </div>
-                </div>
+                </article>
 
-                <div class="step fade-in">
-                    <div class="step-text">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Walk There & Unlock</h3>
-                            <p>Go to your anchor, tap or scan, and your favorite apps unlock. That's it — you showed up for yourself.</p>
+                <article class="rb-howit-block rb-howit-block--reverse">
+                    <div class="rb-howit-text">
+                        <p class="rb-howit-num">02</p>
+                        <h3 class="rb-howit-title">set your triggers</h3>
+                        <p class="rb-howit-body">choose when routines start, and place your anchors where tasks happen. put the anchor <em>inside</em> the closet, not on your nightstand — the point is to get you there.</p>
+                    </div>
+                    <div class="rb-howit-phone-wrap" aria-hidden="true">
+                        <div class="rb-phone">
+                            <div class="rb-phone-screen">
+                                <div class="rb-phone-notch"></div>
+                                <div class="rb-mini-lock">
+                                    <div>
+                                        <div class="rb-mini-lock-time">9:41</div>
+                                        <div class="rb-mini-lock-date">friday · march 5</div>
+                                    </div>
+                                    <div class="rb-mini-lock-card">
+                                        <span class="rb-mini-lock-card-eyebrow">routine · morning</span>
+                                        <span class="rb-mini-lock-card-h">tap your anchor to begin</span>
+                                        <div class="rb-mini-lock-dots">
+                                            <span></span><span></span><span></span><span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="step-visual phone-frame phone-frame--inline">
-                        <img src="images/screenshots/nfc-scan.png" alt="NFC ready to scan prompt confirming a task">
+                </article>
+
+                <article class="rb-howit-block">
+                    <div class="rb-howit-text">
+                        <p class="rb-howit-num">03</p>
+                        <h3 class="rb-howit-title">walk there &amp; unlock</h3>
+                        <p class="rb-howit-body">go to your anchor, tap or scan, and your favorite apps unlock. that's it — you showed up for yourself.</p>
                     </div>
-                </div>
+                    <div class="rb-howit-phone-wrap" aria-hidden="true">
+                        <div class="rb-phone">
+                            <div class="rb-phone-screen">
+                                <div class="rb-phone-notch"></div>
+                                <div class="rb-mini-nfc">
+                                    <svg class="rb-mini-nfc-mark" aria-hidden="true"><use href="#mark"/></svg>
+                                    <div>
+                                        <p class="rb-mini-nfc-h">your phone's right here.</p>
+                                        <p class="rb-mini-nfc-body">one thing first — then it's all yours.</p>
+                                        <svg class="rb-mini-nfc-waves" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-nfc"/></svg>
+                                    </div>
+                                    <span class="rb-mini-nfc-pill">tap your anchor</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>How you earn it</h2>
-                <p>Quiet tools that turn your phone into the reward</p>
+    <!-- Features — how you earn it -->
+    <section class="rb-section" id="features">
+        <div class="rb-container">
+            <div class="rb-section-head">
+                <p class="rb-eyebrow">features</p>
+                <h2 class="rb-section-head-display">how you earn it</h2>
+                <p class="rb-section-head-lead">quiet tools that turn your phone into the reward.</p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <line x1="8" y1="6" x2="21" y2="6"></line>
-                            <line x1="8" y1="12" x2="21" y2="12"></line>
-                            <line x1="8" y1="18" x2="21" y2="18"></line>
-                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
-                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
-                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
-                        </svg>
-                    </div>
-                    <h3>Sequential Routines</h3>
-                    <p>Ordered tasks that build consistency. Complete each step before moving to the next.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M9 12l2 2 4-4"></path>
-                            <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.99 0 3.83.65 5.32 1.74"></path>
-                        </svg>
-                    </div>
-                    <h3>Verified Completion</h3>
-                    <p>Anchors, QR codes, timers, and photos all verify you completed each task.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                    </div>
-                    <h3>App Blocking</h3>
-                    <p>You pick exactly which apps to block. Phone, messages, maps, and anything you whitelist are never touched. Finish your routine and the blocked apps unlock automatically.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Smart Triggers</h3>
-                    <p>Try to open Instagram before your routine is done? A block screen appears instead, showing your progress and how close you are to unlocking it.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                        </svg>
-                    </div>
-                    <h3>A quiet record</h3>
-                    <p>A gentle history of the days you showed up. No streaks to break, no pressure — just proof it's working.</p>
-                </div>
-
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                            <line x1="8" y1="21" x2="16" y2="21"></line>
-                            <line x1="12" y1="17" x2="12" y2="21"></line>
-                        </svg>
-                    </div>
-                    <h3>Lock Screen Progress</h3>
-                    <p>See your routine progress right on your Lock Screen — no need to open the app.</p>
-                </div>
+            <div class="rb-feature-grid">
+                <article class="rb-feature-card">
+                    <span class="rb-feature-icon"><svg aria-hidden="true"><use href="#icon-structure"/></svg></span>
+                    <h3 class="rb-feature-title">sequential routines</h3>
+                    <p class="rb-feature-body">ordered tasks that build consistency. complete each step before moving to the next.</p>
+                </article>
+                <article class="rb-feature-card">
+                    <span class="rb-feature-icon"><svg aria-hidden="true"><use href="#icon-check"/></svg></span>
+                    <h3 class="rb-feature-title">verified completion</h3>
+                    <p class="rb-feature-body">anchors, QR codes, timers, and photos all verify you completed each task.</p>
+                </article>
+                <article class="rb-feature-card">
+                    <span class="rb-feature-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span>
+                    <h3 class="rb-feature-title">app blocking</h3>
+                    <p class="rb-feature-body">you pick exactly which apps to block. phone, messages, maps, and anything you whitelist are never touched.</p>
+                </article>
+                <article class="rb-feature-card">
+                    <span class="rb-feature-icon"><svg aria-hidden="true"><use href="#icon-spark"/></svg></span>
+                    <h3 class="rb-feature-title">smart triggers</h3>
+                    <p class="rb-feature-body">try to open an app before your routine is done? a block screen appears, showing how close you are.</p>
+                </article>
+                <article class="rb-feature-card">
+                    <span class="rb-feature-icon"><svg aria-hidden="true"><use href="#icon-cal"/></svg></span>
+                    <h3 class="rb-feature-title">a quiet record</h3>
+                    <p class="rb-feature-body">a gentle history of the days you showed up. no streaks to break, no pressure — just proof it's working.</p>
+                </article>
+                <article class="rb-feature-card">
+                    <span class="rb-feature-icon"><svg aria-hidden="true"><use href="#icon-chart"/></svg></span>
+                    <h3 class="rb-feature-title">lock screen progress</h3>
+                    <p class="rb-feature-body">see your routine progress right on your lock screen — no need to open the app.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Anchors Section -->
-    <section class="verification" id="anchors">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Place your anchors</h2>
-                <p>Real-world points that give you somewhere to go</p>
+    <!-- Place your anchors -->
+    <section class="rb-section" id="anchors">
+        <div class="rb-container">
+            <div class="rb-section-head">
+                <p class="rb-eyebrow">anchors</p>
+                <h2 class="rb-section-head-display">place your anchors</h2>
+                <p class="rb-section-head-lead">small, physical destinations that pull you toward the task.</p>
             </div>
 
-            <p class="section-intro fade-in">We call them Anchors — small tags and printed codes you place where tasks happen. They're not surveillance. They're destinations. Sometimes just getting there is the hard part.</p>
-
-            <div class="verification-showcase fade-in">
-                <div class="phone-frame phone-frame--inline">
-                    <img src="images/screenshots/active-routine.png" alt="A routine in progress showing a task queue with different verification types">
+            <div class="rb-anchors-top">
+                <div class="rb-anchors-phone" aria-hidden="true">
+                    <div class="rb-phone">
+                        <div class="rb-phone-screen">
+                            <div class="rb-phone-notch"></div>
+                            <img src="images/screenshots/active-routine.png" alt="">
+                        </div>
+                    </div>
+                    <span class="rb-anchors-caption-tag">a routine in progress</span>
                 </div>
-                <p class="verification-showcase-caption">A routine in progress — each task verifies its own way.</p>
+                <div class="rb-anchors-text">
+                    <p class="rb-eyebrow">each task verifies its own way</p>
+                    <p class="rb-anchors-quote">sometimes just getting there<br>is the hard part.</p>
+                    <p class="rb-anchors-text-body">one routine can mix all four anchor types. tap a sticker for meds, scan a printed code on the fridge, hold a timer for breathing, snap a photo of the watered plant. same app — four ways to show up.</p>
+                </div>
             </div>
 
-            <div class="verification-grid">
-                <div class="verification-card fade-in">
-                    <div class="verification-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
-                            <path d="M12 6v6l4 2"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </div>
-                    <h3>Tap Anchors</h3>
-                    <p>Place an anchor where the task happens — closet, bathroom, gym bag. Walk there, tap, and the rest usually follows.</p>
-                    <span class="verification-badge">Most Popular</span>
-                </div>
-
-                <div class="verification-card fade-in">
-                    <div class="verification-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-                            <path d="M7 7h.01M7 12h.01M7 17h.01M12 7h.01M12 12h.01M12 17h.01M17 7h.01M17 12h.01M17 17h.01"></path>
-                        </svg>
-                    </div>
-                    <h3>QR Anchors</h3>
-                    <p>Print free anchors to scan with your camera. Stick one anywhere you want to anchor a routine — office desk, kitchen, journal cover.</p>
-                    <span class="verification-badge">Free</span>
-                </div>
-
-                <div class="verification-card fade-in">
-                    <div class="verification-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Countdown Timer</h3>
-                    <p>Set a minimum time for tasks like meditation or reading. Timer ensures you complete the full duration.</p>
-                    <span class="verification-badge">Time-Based</span>
-                </div>
-
-                <div class="verification-card fade-in">
-                    <div class="verification-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                            <polyline points="21 15 16 10 5 21"></polyline>
-                        </svg>
-                    </div>
-                    <h3>Photo Verification</h3>
-                    <p>Snap a photo as proof of completion. Great for cleaning, cooking, or visual tasks.</p>
-                    <span class="verification-badge">Visual Proof</span>
-                </div>
+            <div class="rb-anchor-grid">
+                <article class="rb-anchor-card">
+                    <span class="rb-anchor-pill">most popular</span>
+                    <span class="rb-anchor-icon-ring"><svg aria-hidden="true"><use href="#icon-nfc"/></svg></span>
+                    <h3 class="rb-anchor-title">tap anchors</h3>
+                    <p class="rb-anchor-body">place an anchor where the task happens — closet, bathroom, gym bag. walk there, tap, and the rest usually follows.</p>
+                </article>
+                <article class="rb-anchor-card">
+                    <span class="rb-anchor-pill">free</span>
+                    <span class="rb-anchor-icon-ring"><svg aria-hidden="true"><use href="#icon-qr"/></svg></span>
+                    <h3 class="rb-anchor-title">qr anchors</h3>
+                    <p class="rb-anchor-body">print free anchors to scan with your camera. stick one anywhere you want to anchor a routine — office desk, kitchen, journal cover.</p>
+                </article>
+                <article class="rb-anchor-card">
+                    <span class="rb-anchor-pill">time-based</span>
+                    <span class="rb-anchor-icon-ring"><svg aria-hidden="true"><use href="#icon-timer"/></svg></span>
+                    <h3 class="rb-anchor-title">countdown timer</h3>
+                    <p class="rb-anchor-body">set a minimum time for tasks like meditation or reading. timer ensures you complete the full duration.</p>
+                </article>
+                <article class="rb-anchor-card">
+                    <span class="rb-anchor-pill">visual proof</span>
+                    <span class="rb-anchor-icon-ring"><svg aria-hidden="true"><use href="#icon-photo"/></svg></span>
+                    <h3 class="rb-anchor-title">photo verification</h3>
+                    <p class="rb-anchor-body">snap a photo as proof of completion. great for cleaning, cooking, or visual tasks.</p>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Why Anchors Work Section -->
-    <section class="why-anchors" id="why-anchors">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Why anchors work</h2>
-                <p>The hardest part is starting</p>
-            </div>
-
-            <div class="why-anchors-content fade-in">
-                <p>Reminders tell you what to do. Anchors give you somewhere to go.</p>
-                <p>There's a difference between "I should get dressed" and "I need to walk to my closet." One is a mental battle. The other is just movement.</p>
-                <p>Place an anchor where the task happens — inside the closet, not on the nightstand. When your routine starts, you have a destination. Walk there, tap, and the rest usually follows.</p>
-                <p>That's why your screen time feels guilt-free. You didn't just check a box. You showed up.</p>
-                <p class="supportive-note">Some days are harder than others. Anchors don't judge — they just give you a place to go. That's often enough.</p>
-            </div>
+    <!-- Why anchors work -->
+    <section class="rb-section rb-tone-accent-soft" id="why-anchors">
+        <div class="rb-why">
+            <svg class="rb-why-mark" aria-hidden="true"><use href="#mark"/></svg>
+            <p class="rb-why-eyebrow">the hardest part is starting</p>
+            <h2 class="rb-why-title">why anchors work</h2>
+            <p class="rb-why-quote">reminders tell you what to do.<br>anchors give you somewhere to go.</p>
+            <p class="rb-why-body">there's a difference between "i should get dressed" and "i need to walk to my closet." one is a mental battle. the other is just movement.</p>
+            <p class="rb-why-body">place an anchor where the task happens — inside the closet, not on the nightstand. when your routine starts, you have a destination. walk there, tap, and the rest usually follows.</p>
+            <p class="rb-why-body">that's why your screen time feels guilt-free. you didn't just check a box. you showed up.</p>
+            <p class="rb-why-body">some days are harder than others. anchors don't judge — they just give you a place to go. that's often enough.</p>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Frequently asked questions</h2>
-                <p>Everything you need to know about Anchor</p>
+    <section class="rb-section" id="faq">
+        <div class="rb-container">
+            <div class="rb-section-head">
+                <p class="rb-eyebrow">faq</p>
+                <h2 class="rb-section-head-display">frequently asked</h2>
+                <p class="rb-section-head-lead">everything you need to know about anchor.</p>
             </div>
 
-            <div class="faq-list">
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>What makes anchors different from reminders?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Reminders tell you what to do. Anchors give you somewhere to go. There's a big difference. "Get dressed" is a mental battle. "Walk to the closet and tap" is just movement. Once you're there, getting dressed becomes obvious. Anchors turn tasks into destinations.</p>
+            <div class="rb-faq">
+                <details class="rb-faq-item" open>
+                    <summary>
+                        <span class="rb-faq-q">what makes anchors different from reminders?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>reminders tell you what to do. anchors give you somewhere to go. there's a big difference. "get dressed" is a mental battle. "walk to the closet and tap" is just movement. once you're there, getting dressed becomes obvious. anchors turn tasks into destinations.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Is this app anti-phone?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Not at all! We love our phones too. Anchor isn't about reducing screen time — it's about making your screen time feel earned and enjoyable. Do what matters to you, then scroll without the guilt.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">is this app anti-phone?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>not at all. we love our phones too. anchor isn't about reducing screen time — it's about making your screen time feel earned and enjoyable. do what matters to you, then scroll without the guilt.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>How does app blocking work?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>When you create a routine, you choose exactly which apps to block — like TikTok and Instagram. Essential apps (phone calls, messages, maps, banking) are never touched. Blocking uses your iPhone's built-in Screen Time, so it works system-wide and can't be easily bypassed. Finish your routine and everything unlocks automatically. Need an app urgently? There's always an emergency override — it just takes a few extra taps to give you a moment to reconsider.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">how does app blocking work?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>when you create a routine, you choose exactly which apps to block — like tiktok and instagram. essential apps (phone calls, messages, maps, banking) are never touched. blocking uses your iPhone's built-in Screen Time, so it works system-wide and can't be easily bypassed. finish your routine and everything unlocks automatically. need an app urgently? there's always an emergency override — it just takes a few extra taps to give you a moment to reconsider.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Do I need to buy anything to use Anchor?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>No — QR anchors, countdown timers, and photo verification are all free and built in. NFC tags (for tap anchors) are an optional purchase if you prefer tapping to scanning. They're widely available online for around $0.25 each, and any NTAG213 or NTAG215 compatible tag works.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">do i need to buy anything to use anchor?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>no — QR anchors, countdown timers, and photo verification are all free and built in. NFC tags (for tap anchors) are an optional purchase if you prefer tapping to scanning. they're widely available online for around $0.25 each, and any NTAG213 or NTAG215 compatible tag works.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Is my data private?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes. Your routines, habits, and completion data stay on your device. Anchor doesn't require an account and doesn't send your personal habit data to any servers. What you do with your time is your business.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">is my data private?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>yes. your routines, habits, and completion data stay on your device. anchor doesn't require an account and doesn't send your personal habit data to any servers. what you do with your time is your business.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Can I bypass the app blocking?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Blocking uses your iPhone's built-in parental controls (Screen Time), which are designed to be very hard to bypass. You always have an emergency override — you're an adult — but it takes a few extra taps, giving you a moment to reconsider. Even if you delete Anchor, the blocking stays active until you remove it in Settings.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">can i bypass the app blocking?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>blocking uses your iPhone's built-in parental controls (Screen Time), which are designed to be very hard to bypass. you always have an emergency override — you're an adult — but it takes a few extra taps, giving you a moment to reconsider. even if you delete anchor, the blocking stays active until you remove it in Settings.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Does it work without internet?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! All core features work offline. Your routines, anchors, and app blocking all function without an internet connection. Anchor is designed to work reliably wherever life takes you.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">does it work without internet?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>yes. all core features work offline. your routines, anchors, and app blocking all function without an internet connection. anchor is designed to work reliably wherever life takes you.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>What iPhone do I need?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Anchor works on any iPhone with iOS 17 or later. Tap anchors require iPhone 7 or newer (for NFC reading). Lock screen progress works best on newer iPhones but isn't required.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">what iPhone do i need?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>anchor works on any iPhone with iOS 17 or later. tap anchors require iPhone 7 or newer (for NFC reading). lock screen progress works best on newer iPhones but isn't required.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>What is TestFlight?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>TestFlight is Apple's official app for trying new apps before they launch publicly. It's free, safe, and made by Apple. You download TestFlight from the App Store, tap our link to install Anchor, and you're done — takes under a minute.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">what is TestFlight?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>TestFlight is Apple's official app for trying new apps before they launch publicly. it's free, safe, and made by Apple. you download TestFlight from the App Store, tap our link to install anchor, and you're done — takes under a minute.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Can I choose which apps are blocked?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes — you pick exactly which apps to block when you create a routine. Phone calls, messages, maps, banking, and anything else you whitelist are never touched.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">can i choose which apps are blocked?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>yes — you pick exactly which apps to block when you create a routine. phone calls, messages, maps, banking, and anything else you whitelist are never touched.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>What happens if I skip my routine?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Your blocked apps stay restricted until you complete the routine or use the emergency override. There's no punishment — just try again tomorrow. Anchor doesn't judge.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">what happens if i skip my routine?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>your blocked apps stay restricted until you complete the routine or use the emergency override. there's no punishment — just try again tomorrow. anchor doesn't judge.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Is this just for mornings?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Not at all. You can create routines for mornings, bedtime, workouts, study sessions, or any time of day. Set up as many as you need.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">is this just for mornings?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>not at all. you can create routines for mornings, bedtime, workouts, study sessions, or any time of day. set up as many as you need.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Is Anchor available on Android?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Anchor is currently iPhone only (iOS 17+). Android support is on our roadmap.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">is anchor available on Android?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>anchor is currently iPhone only (iOS 17+). Android support is on our roadmap.</p>
                     </div>
-                </div>
+                </details>
 
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>What if I delete the app?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>App blocking is enforced by your iPhone's built-in Screen Time, which stays active independently of Anchor. Deleting the app won't remove the blocking — you'd need to turn it off in your iPhone's Settings.</p>
+                <details class="rb-faq-item">
+                    <summary>
+                        <span class="rb-faq-q">what if i delete the app?</span>
+                        <span class="rb-faq-toggle" aria-hidden="true"><svg><use href="#icon-plus"/></svg></span>
+                    </summary>
+                    <div class="rb-faq-a">
+                        <p>app blocking is enforced by your iPhone's built-in Screen Time, which stays active independently of anchor. deleting the app won't remove the blocking — you'd need to turn it off in your iPhone's Settings.</p>
                     </div>
-                </div>
+                </details>
             </div>
+        </div>
+    </section>
+    </main>
+
+    <!-- Closing CTA -->
+    <section class="rb-closer">
+        <div class="rb-closer-inner">
+            <svg class="rb-closer-mark" aria-hidden="true"><use href="#mark"/></svg>
+            <h2 class="rb-closer-h">a steadier <em>start.</em></h2>
+            <p class="rb-closer-sub">do one real thing, then your phone's all yours. no shame, no countdown.</p>
+            <a href="https://testflight.apple.com/join/tD7gWRxN" target="_blank" rel="noopener" class="rb-btn rb-btn-primary">
+                get early access — free
+                <svg class="rb-btn-icon" aria-hidden="true"><use href="#icon-chev"/></svg>
+            </a>
+            <p class="rb-closer-meta">free on iphone · no account · TestFlight beta</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-cta fade-in">
-                <h2>A steadier start.</h2>
-                <p>Do one real thing, then your phone's all yours. No shame, no countdown.</p>
-                <a href="https://testflight.apple.com/join/tD7gWRxN" class="beta-button">
-                    Get early access — free
-                </a>
-                <p class="footer-subtext">free on iPhone · no account · TestFlight beta</p>
+    <footer class="rb-footer">
+        <div class="rb-container">
+            <div class="rb-footer-grid">
+                <div class="rb-footer-brand">
+                    <a href="#" class="rb-lockup">
+                        <svg class="rb-lockup-mark" aria-hidden="true"><use href="#mark"/></svg>
+                        <span class="rb-lockup-name">anchor</span>
+                    </a>
+                    <p class="rb-footer-tagline">a steadier start. guilt-free screen time, earned.</p>
+                </div>
+
+                <div class="rb-footer-col">
+                    <h4>product</h4>
+                    <ul>
+                        <li><a href="#how-it-works">how it works</a></li>
+                        <li><a href="#features">features</a></li>
+                        <li><a href="#anchors">anchors</a></li>
+                        <li><a href="#faq">faq</a></li>
+                    </ul>
+                </div>
+
+                <div class="rb-footer-col">
+                    <h4>legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">privacy</a></li>
+                        <li><a href="terms.html">terms</a></li>
+                    </ul>
+                </div>
+
+                <div class="rb-footer-col">
+                    <h4>connect</h4>
+                    <ul>
+                        <li><a href="mailto:support@anchorapp.io">contact</a></li>
+                        <li><a href="https://testflight.apple.com/join/tD7gWRxN" target="_blank" rel="noopener">TestFlight beta</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="footer-links">
-                <div class="footer-brand">
-                    <img src="images/app-icon.svg" alt="Anchor" class="footer-logo">
-                    <p>A steadier start. Guilt-free screen time, earned.</p>
-                </div>
-
-                <div class="footer-nav">
-                    <h4>Product</h4>
-                    <a href="#features">Features</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#faq">FAQ</a>
-                </div>
-
-                <div class="footer-nav">
-                    <h4>Legal</h4>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-
-                <div class="footer-nav">
-                    <h4>Connect</h4>
-                    <a href="mailto:support@anchorapp.io">Contact</a>
-                    <a href="https://twitter.com/anchorapp">Twitter</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Anchor. All rights reserved.</p>
+            <div class="rb-footer-bottom">
+                <p class="rb-footer-copy">&copy; 2026 anchor. all rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -1,25 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <!-- Background -->
-  <rect width="1200" height="630" fill="#FAF8F3"/>
+  <!-- Clay tile background -->
+  <rect width="1200" height="630" fill="#B5562F"/>
 
-  <!-- Quiet earth accents -->
-  <circle cx="1120" cy="80" r="220" fill="#F3ECE1"/>
-  <circle cx="150" cy="600" r="180" fill="#F3ECE1"/>
+  <!-- Soft accent halo -->
+  <circle cx="600" cy="200" r="300" fill="rgba(250, 248, 243, 0.08)"/>
 
-  <!-- App icon: A-frame mark, cream on clay -->
-  <g transform="translate(100, 215)">
-    <rect width="200" height="200" rx="45" fill="#B5562F"/>
-    <g transform="translate(30,30) scale(1.4)" stroke="#F3ECE1" stroke-linecap="round" fill="none">
-      <line x1="50" y1="16" x2="26" y2="82" stroke-width="7.5"/>
-      <line x1="50" y1="16" x2="74" y2="82" stroke-width="7.5"/>
-      <line x1="34" y1="57" x2="66" y2="57" stroke-width="7.5"/>
-      <line x1="20" y1="82" x2="32" y2="82" stroke-width="7"/>
-      <line x1="68" y1="82" x2="80" y2="82" stroke-width="7"/>
-    </g>
-  </g>
+  <!-- Mark — hook silhouette, single cream stroke -->
+  <svg viewBox="12 14 76 76" x="455" y="115" width="290" height="290">
+    <path d="M70 78 V46 A20 20 0 0 0 30 46 V57" fill="none" stroke="#FAF8F3" stroke-width="13" stroke-linecap="round"/>
+    <line x1="30" y1="57" x2="45" y2="69" stroke="#FAF8F3" stroke-width="13" stroke-linecap="round"/>
+  </svg>
 
-  <!-- Text -->
-  <text x="360" y="285" fill="#3A2C22" font-family="'Bitter', Georgia, serif" font-size="92" font-weight="500" letter-spacing="-1">Anchor</text>
-  <text x="360" y="360" fill="#8E3F20" font-family="'Bitter', Georgia, serif" font-size="44" font-weight="400">A steadier start.</text>
-  <text x="362" y="412" fill="#8A7B6E" font-family="'Karla', sans-serif" font-size="29" font-weight="400">guilt-free screen time, earned.</text>
+  <!-- Wordmark + tagline (Bitter / Karla; fall back to serif/sans if unloaded) -->
+  <text x="600" y="475" text-anchor="middle" fill="#FAF8F3"
+        font-family="Bitter, Georgia, serif" font-size="88" font-weight="500"
+        letter-spacing="-1.2">anchor</text>
+  <text x="600" y="545" text-anchor="middle" fill="rgba(250, 248, 243, 0.78)"
+        font-family="Karla, system-ui, sans-serif" font-size="28" font-weight="400"
+        letter-spacing="0.4">a steadier start</text>
 </svg>

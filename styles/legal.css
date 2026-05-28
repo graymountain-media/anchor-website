@@ -1,110 +1,94 @@
-/* ============================
-   Legal Pages Styles
-   ============================ */
+/* ============================================================
+   Legal pages — chrome layered over tokens.css + main.css.
+   The body copy is verbatim from the originals; only the type
+   ramp and color tones change here.
+   ============================================================ */
 
-.legal-content {
-    padding: calc(80px + var(--spacing-2xl)) 0 var(--spacing-3xl);
-    min-height: calc(100vh - 200px);
+.rb-legal {
+    padding-top: var(--nav-h);
 }
 
-.legal-content .container {
-    max-width: 800px;
+.rb-legal-inner {
+    max-width: var(--site-maxw-tx);
+    margin: 0 auto;
+    padding: 56px var(--edge-x) 96px;
 }
 
-.legal-content h1 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
+.rb-legal-eyebrow {
+    font-family: var(--font-sans);
     font-weight: 500;
-    margin-bottom: var(--spacing-xs);
-    letter-spacing: -0.01em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 16px;
 }
 
-.legal-updated {
-    color: var(--text-secondary);
-    font-size: 0.9375rem;
-    margin-bottom: var(--spacing-2xl);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--card-border);
-}
-
-.legal-content section {
-    margin-bottom: var(--spacing-xl);
-}
-
-.legal-content h2 {
-    font-size: 1.25rem;
+.rb-legal-h1 {
+    font-family: var(--font-serif);
     font-weight: 500;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text);
+    font-size: clamp(34px, 5vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin: 0 0 8px;
+    text-wrap: balance;
 }
 
-.legal-content p {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-sm);
+.rb-legal-updated {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 0 0 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--hair);
 }
 
-.legal-content ul {
-    margin: var(--spacing-sm) 0;
-    padding-left: var(--spacing-lg);
+.rb-legal-inner section {
+    margin: 0 0 32px;
 }
 
-.legal-content li {
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: var(--spacing-xs);
+.rb-legal-inner h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+    color: var(--ink);
+    margin: 0 0 10px;
+}
+
+.rb-legal-inner p {
+    font-family: var(--font-sans);
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+}
+
+.rb-legal-inner ul {
+    margin: 8px 0 14px;
+    padding-left: 22px;
+}
+
+.rb-legal-inner li {
+    font-family: var(--font-sans);
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
     list-style: disc;
 }
 
-.legal-content li strong {
-    color: var(--text);
+.rb-legal-inner li strong,
+.rb-legal-inner p strong {
+    color: var(--ink);
+    font-weight: 500;
 }
 
-.legal-content a {
-    color: var(--primary);
+.rb-legal-inner a {
+    color: var(--accent-deep);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
-
-.legal-content a:hover {
-    color: var(--primary-light);
-}
-
-/* Legal Footer */
-.legal-footer {
-    padding: var(--spacing-lg) 0;
-    background: var(--background-secondary);
-}
-
-.legal-footer .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 0;
-}
-
-.legal-links {
-    display: flex;
-    gap: var(--spacing-lg);
-}
-
-.legal-links a {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    transition: color var(--transition-fast);
-}
-
-.legal-links a:hover {
-    color: var(--primary);
-}
-
-@media (max-width: 640px) {
-    .legal-footer .footer-bottom {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        text-align: center;
-    }
-
-    .legal-links {
-        gap: var(--spacing-md);
-    }
-}
+.rb-legal-inner a:hover { filter: brightness(1.1); }
