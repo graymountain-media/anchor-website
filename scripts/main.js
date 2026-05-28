@@ -7,37 +7,26 @@
     'use strict';
 
     // ============================
-    // Navigation
+    // Navigation (rebrand)
     // ============================
 
-    const nav = document.getElementById('nav');
-    const navToggle = document.getElementById('nav-toggle');
-    const navLinks = document.getElementById('nav-links');
-
-    // Sticky nav with background on scroll
-    function handleScroll() {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
+    const nav = document.getElementById('rb-nav');
+    const navToggle = document.getElementById('rb-nav-toggle');
+    const navSheet = document.getElementById('rb-nav-sheet');
 
     // Mobile menu toggle
-    if (navToggle && navLinks) {
+    if (navToggle && navSheet) {
         navToggle.addEventListener('click', function() {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            const open = navSheet.dataset.open === 'true';
+            navSheet.dataset.open = open ? 'false' : 'true';
+            navToggle.setAttribute('aria-expanded', open ? 'false' : 'true');
         });
 
-        // Close menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(function(link) {
+        // Close sheet when a link is clicked
+        navSheet.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
+                navSheet.dataset.open = 'false';
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }
@@ -88,27 +77,18 @@
     checkFadeIn(); // Initial check
 
     // ============================
-    // FAQ Accordion
+    // FAQ Accordion — native <details>, one open at a time
     // ============================
 
-    const faqItems = document.querySelectorAll('.faq-item');
-
+    const faqItems = document.querySelectorAll('.rb-faq-item');
     faqItems.forEach(function(item) {
-        const question = item.querySelector('.faq-question');
-
-        if (question) {
-            question.addEventListener('click', function() {
-                // Close other items
-                faqItems.forEach(function(otherItem) {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
+        item.addEventListener('toggle', function() {
+            if (item.open) {
+                faqItems.forEach(function(other) {
+                    if (other !== item && other.open) other.open = false;
                 });
-
-                // Toggle current item
-                item.classList.toggle('active');
-            });
-        }
+            }
+        });
     });
 
     // ============================
