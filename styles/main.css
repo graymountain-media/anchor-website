@@ -1466,17 +1466,6 @@ body.rb {
     background: var(--bg);
     overflow: hidden;
 }
-.rb-phone-notch {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 84px;
-    height: 22px;
-    border-radius: 12px;
-    background: var(--ink);
-    z-index: 2;
-}
 .rb-phone img {
     width: 100%;
     height: 100%;
@@ -1493,8 +1482,26 @@ body.rb {
     transform: rotate(-4deg) translateX(20px);
 }
 .rb-hero-phones .rb-phone--front {
+    position: relative;
     transform: rotate(5deg) translateX(-30px);
     margin-left: -56px;
+}
+.rb-hero-tap-pill {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    border-radius: var(--r-chip);
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(181, 86, 47, 0.28);
 }
 @media (max-width: 720px) {
     .rb-hero-art { min-height: 480px; }
@@ -1504,110 +1511,7 @@ body.rb {
         transform: none;
         margin: 0;
     }
-}
-
-/* ── Styled phone placeholders (until real screenshots land) ── */
-.rb-mini-home {
-    height: 100%;
-    background: var(--bg);
-    color: var(--ink);
-    padding: 36px 18px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    font-family: var(--font-sans);
-}
-.rb-mini-home-eyebrow {
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding-top: 14px;
-}
-.rb-mini-home-title {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-}
-.rb-mini-row {
-    background: var(--surface);
-    border: 1px solid var(--hair);
-    border-radius: 12px;
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.rb-mini-row-name {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: 15px;
-    color: var(--ink);
-}
-.rb-mini-row-meta {
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.rb-mini-nfc {
-    height: 100%;
-    background: var(--accent);
-    color: var(--on-accent);
-    padding: 64px 20px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    font-family: var(--font-sans);
-}
-.rb-mini-nfc-mark {
-    width: 46px;
-    height: 46px;
-    color: var(--on-accent);
-    opacity: 0.92;
-}
-.rb-mini-nfc-h {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: 22px;
-    letter-spacing: -0.005em;
-    line-height: 1.15;
-    margin-top: 12px;
-}
-.rb-mini-nfc-body {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    line-height: 1.4;
-    opacity: 0.82;
-    margin-top: 8px;
-    max-width: 14em;
-}
-.rb-mini-nfc-pill {
-    background: var(--on-accent);
-    color: var(--accent-deep);
-    border-radius: var(--r-chip);
-    padding: 9px 16px;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 12.5px;
-    letter-spacing: 0.04em;
-    margin-bottom: 8px;
-}
-.rb-mini-nfc-waves {
-    width: 70px;
-    height: 50px;
-    margin: 18px 0 6px;
-    opacity: 0.92;
-    color: var(--on-accent);
+    .rb-hero-tap-pill { bottom: -14px; }
 }
 
 /* ── Section shell ────────────────────────────────────────── */
@@ -1843,116 +1747,6 @@ body.rb {
     margin: 0;
 }
 
-/* ── Phone screen placeholders for how-it-works ──────────── */
-.rb-mini-builder {
-    height: 100%;
-    background: var(--bg);
-    padding: 38px 18px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-.rb-mini-builder-title {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: 20px;
-    color: var(--ink);
-}
-.rb-mini-builder-row {
-    background: var(--surface);
-    border: 1px solid var(--hair);
-    border-radius: 12px;
-    padding: 12px 14px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--font-sans);
-    font-size: 14px;
-    color: var(--ink);
-}
-.rb-mini-builder-row::before {
-    content: "";
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 1.5px solid var(--hair-strong);
-    flex: 0 0 auto;
-}
-.rb-mini-builder-row + .rb-mini-add {
-    margin-top: 4px;
-    color: var(--muted);
-    font-family: var(--font-sans);
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    padding: 10px;
-    border: 1px dashed var(--hair-strong);
-    border-radius: 12px;
-    text-align: center;
-}
-
-.rb-mini-lock {
-    height: 100%;
-    background: linear-gradient(180deg, #2a2018, #1b140f);
-    color: var(--bg);
-    padding: 60px 16px 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-    font-family: var(--font-sans);
-}
-.rb-mini-lock-time {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: 56px;
-    line-height: 1;
-    color: var(--bg);
-    margin-top: 8px;
-}
-.rb-mini-lock-date {
-    font-family: var(--font-sans);
-    font-size: 13px;
-    color: rgba(243, 236, 225, 0.7);
-}
-.rb-mini-lock-card {
-    margin-top: 32px;
-    width: 100%;
-    background: rgba(243, 236, 225, 0.10);
-    border: 1px solid rgba(243, 236, 225, 0.12);
-    border-radius: 18px;
-    padding: 14px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.rb-mini-lock-card-eyebrow {
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(243, 236, 225, 0.6);
-}
-.rb-mini-lock-card-h {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    font-size: 17px;
-    color: var(--bg);
-}
-.rb-mini-lock-dots {
-    display: flex;
-    gap: 5px;
-    margin-top: 4px;
-}
-.rb-mini-lock-dots span {
-    width: 18px;
-    height: 5px;
-    border-radius: 100px;
-    background: rgba(243, 236, 225, 0.18);
-}
-.rb-mini-lock-dots span.is-done { background: var(--accent); }
 
 /* ── Place your anchors ───────────────────────────────────── */
 .rb-anchors-top {
